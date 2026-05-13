@@ -604,7 +604,10 @@
     }
 
     @media (max-width: 600px) {
-      .top-bar .links { gap: 12px; font-size: 12px; }
+      .top-bar { padding: 7px 0; }
+      .top-bar .links { gap: 0; }
+      .top-bar .links a:not(:first-child) { display: none; }
+      .top-bar .links a:first-child { font-size: 13px; }
 
       nav .container { padding-top: 10px; padding-bottom: 10px; }
       .nav-links {
