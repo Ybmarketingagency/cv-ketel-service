@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Ketel Service – CV Ketel Specialist</title>
+  <link rel="icon" type="image/png" href="https://i.imgur.com/6DGCSDa.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: #1a1a1a; background: #fff; }
+
+    :root {
+      --blue: #0267CC;
+      --green: #82BE42;
+      --grad: linear-gradient(120deg, #0267CC 0%, #82BE42 100%);
+      --grad-r: linear-gradient(120deg, #82BE42 0%, #0267CC 100%);
+      --dark: #0d1a2e;
+      --light-bg: #f6f9ff;
+      --border: #dde9f8;
+      --text: #1a1a1a;
+      --muted: #60748a;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── TOP BAR ── */
+    .top-bar {
+      background: var(--dark);
+      color: #9fb8d8;
+      padding: 9px 0;
+      font-size: 13px;
+    }
+    .top-bar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .top-bar .links { display: flex; gap: 22px; }
+    .top-bar a {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #9fb8d8;
+      transition: color .2s;
+    }
+    .top-bar a:hover { color: #fff; }
+    .top-badge {
+      background: var(--grad);
+      color: #fff;
+      padding: 3px 14px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: .3px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: #fff;
+      box-shadow: 0 2px 16px rgba(2,103,204,.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-weight: 800;
+      font-size: 21px;
+      color: var(--dark);
+    }
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      background: var(--grad);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 19px;
+    }
+    .logo em { font-style: normal; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-btn {
+      background: var(--grad) !important;
+      color: #fff !important;
+      padding: 10px 22px;
+      border-radius: 7px;
+      font-weight: 700 !important;
+      transition: opacity .2s !important;
+    }
+    .nav-btn:hover { opacity: .88; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--grad);
+      color: #fff;
+      padding: 80px 0 64px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1400&q=80') center/cover no-repeat;
+      opacity: .08;
+    }
+    .hero .container {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 64px;
+      align-items: center;
+      position: relative;
+    }
+    .hero-pill {
+      display: inline-block;
+      background: rgba(255,255,255,.22);
+      color: #fff;
+      padding: 5px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .7px;
+      margin-bottom: 22px;
+      border: 1px solid rgba(255,255,255,.35);
+    }
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+    .hero h1 em { font-style: normal; color: rgba(255,255,255,.85); text-decoration: underline; text-decoration-color: rgba(255,255,255,.4); text-underline-offset: 6px; }
+    .hero-sub {
+      font-size: 17px;
+      color: rgba(255,255,255,.78);
+      line-height: 1.65;
+      margin-bottom: 32px;
+      max-width: 480px;
+    }
+    .hero-usps {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+      margin-bottom: 38px;
+    }
+    .hero-usp {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+    }
+    .hero-usp i { color: rgba(255,255,255,.9); width: 20px; flex-shrink: 0; }
+    .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      color: var(--blue);
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 16px;
+      transition: box-shadow .2s, transform .15s;
+    }
+    .btn-primary:hover { box-shadow: 0 8px 28px rgba(0,0,0,.18); transform: translateY(-2px); }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: #fff;
+      padding: 15px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 16px;
+      border: 2px solid rgba(255,255,255,.4);
+      transition: border-color .2s, background .2s;
+    }
+    .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,.1); }
+
+    /* ── FORM CARD ── */
+    .form-card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 34px;
+      color: var(--text);
+      box-shadow: 0 24px 72px rgba(2,103,204,.22);
+    }
+    .form-card h3 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+    .form-card > p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+    .fg { margin-bottom: 13px; }
+    .fg label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: .4px;
+    }
+    .fg input,
+    .fg select {
+      width: 100%;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 14px;
+      font-family: inherit;
+      color: var(--text);
+      background: #f8fafd;
+      outline: none;
+      transition: border-color .2s, background .2s;
+    }
+    .fg input:focus,
+    .fg select:focus { border-color: var(--blue); background: #fff; }
+    .fg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .form-btn {
+      width: 100%;
+      background: var(--grad);
+      color: #fff;
+      border: none;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      transition: opacity .2s;
+      margin-top: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .form-btn:hover { opacity: .88; }
+    .form-note {
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    /* ── USP STRIP ── */
+    .usp-strip {
+      background: var(--dark);
+      padding: 22px 0;
+    }
+    .usp-strip .container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .usp-chip {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #9fb8d8;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .usp-chip i { font-size: 20px; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    /* ── SERVICES ── */
+    .services {
+      padding: 88px 0;
+      background: var(--light-bg);
+    }
+    .section-head {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+    .s-label {
+      display: inline-block;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-bottom: 12px;
+    }
+    .section-head h2 {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 14px;
+    }
+    .section-head p {
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 540px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .svc-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .svc-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 34px 28px;
+      border: 1.5px solid var(--border);
+      transition: border-color .25s, box-shadow .25s, transform .25s;
+    }
+    .svc-card:hover {
+      border-color: var(--blue);
+      box-shadow: 0 10px 36px rgba(2,103,204,.1);
+      transform: translateY(-4px);
+    }
+    .svc-icon {
+      width: 54px;
+      height: 54px;
+      background: var(--grad);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .svc-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+    .svc-card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .svc-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 600;
+      transition: gap .2s;
+    }
+    .svc-card:hover .svc-link { gap: 10px; }
+
+    /* ── BRANDS ── */
+    .brands {
+      padding: 56px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .brands .s-label { display: block; text-align: center; margin-bottom: 30px; }
+    .brands-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 52px;
+      flex-wrap: wrap;
+    }
+    .brand-name {
+      font-size: 22px;
+      font-weight: 800;
+      color: #c8d4e0;
+      letter-spacing: -.5px;
+      transition: color .2s;
+    }
+    .brand-name:hover { color: var(--blue); }
+
+    /* ── REVIEWS ── */
+    .reviews {
+      padding: 88px 0;
+      background: var(--dark);
+      color: #fff;
+    }
+    .reviews .section-head h2 { color: #fff; }
+    .reviews .section-head p { color: #7fa0be; }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .review-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 14px;
+      padding: 30px;
+    }
+    .stars { color: #fbbf24; font-size: 15px; margin-bottom: 14px; }
+    .review-body {
+      font-size: 15px;
+      color: #a8c0d8;
+      line-height: 1.7;
+      margin-bottom: 22px;
+    }
+    .reviewer {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .r-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--grad);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .r-name { font-weight: 700; font-size: 14px; color: #fff; }
+    .r-city { font-size: 12px; color: #4a6a84; }
+
+    /* ── WHY US ── */
+    .why {
+      padding: 88px 0;
+      background: #fff;
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .why-img-wrap {
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+    }
+    .why-img-wrap img {
+      width: 100%;
+      height: 460px;
+      object-fit: cover;
+    }
+    .why-badge {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      background: var(--grad);
+      color: #fff;
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .why-content .section-head { text-align: left; margin-bottom: 30px; }
+    .why-content .section-head h2 { font-size: 32px; }
+    .why-items { display: flex; flex-direction: column; gap: 22px; }
+    .why-item { display: flex; gap: 16px; }
+    .wi-icon {
+      width: 46px;
+      height: 46px;
+      background: var(--light-bg);
+      border: 1.5px solid var(--border);
+      border-radius: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+      background: var(--grad);
+      color: #fff;
+    }
+    .wi-text h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 5px;
+    }
+    .wi-text p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      color: #7a9ab8;
+      padding: 64px 0 26px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 52px;
+    }
+    .f-brand .logo { color: #fff; margin-bottom: 14px; }
+    .f-brand p { font-size: 14px; line-height: 1.7; margin-bottom: 22px; }
+    .f-contacts { display: flex; flex-direction: column; gap: 10px; }
+    .f-contacts a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #7a9ab8;
+      font-size: 14px;
+      transition: color .2s;
+    }
+    .f-contacts a:hover { color: var(--green); }
+    .f-col h4 {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+      margin-bottom: 16px;
+    }
+    .f-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .f-links a { color: #7a9ab8; font-size: 14px; transition: color .2s; }
+    .f-links a:hover { color: var(--green); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.07);
+      padding-top: 26px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .footer-bottom a { color: #4a6a84; transition: color .2s; }
+    .footer-bottom a:hover { color: var(--green); }
+    .ta-credit { color: var(--green) !important; font-weight: 700; }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="container">
+    <div class="links">
+      <a href="tel:+31850607123"><i class="fas fa-phone"></i> +31 85 060 7123</a>
+      <a href="https://wa.me/31850607123"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="mailto:info@thermopro.nl"><i class="fas fa-envelope"></i> info@thermopro.nl</a>
+    </div>
+    <span class="top-badge">24/7 Spoedservice</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="container">
+    <a href="#" class="logo">
+      <img src="https://i.imgur.com/6DGCSDa.png" alt="CV Ketel Service" style="height:64px;width:auto;">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#diensten">Diensten</a></li>
+      <li><a href="#werkgebied">Werkgebied</a></li>
+      <li><a href="#tarieven">Tarieven</a></li>
+      <li><a href="#over-ons">Over ons</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#afspraak" class="nav-btn">Afspraak maken</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div>
+      <span class="hero-pill">Spoedservice &amp; onderhoud</span>
+      <h1>CV ketel kapot?<br>Wij lossen het <em>vandaag</em> op.</h1>
+      <p class="hero-sub">Snelle, eerlijke en professionele verwarmingsservice. Gecertificeerde monteurs — binnen 2 uur bij u thuis.</p>
+      <div class="hero-usps">
+        <div class="hero-usp"><i class="fas fa-bolt"></i> Responstijd gemiddeld binnen 60 minuten</div>
+        <div class="hero-usp"><i class="fas fa-shield-halved"></i> Vaste prijzen, geen verborgen kosten</div>
+        <div class="hero-usp"><i class="fas fa-star"></i> 4,9 / 5 op basis van 800+ beoordelingen</div>
+        <div class="hero-usp"><i class="fas fa-tools"></i> Gecertificeerd voor alle grote merken</div>
+      </div>
+      <div class="cta-row">
+        <a href="tel:+31850607123" class="btn-primary"><i class="fas fa-phone"></i> Bel: 085 060 7123</a>
+        <a href="#afspraak" class="btn-outline"><i class="fas fa-calendar-check"></i> Plan afspraak</a>
+      </div>
+    </div>
+
+    <!-- FORM CARD -->
+    <div class="form-card" id="afspraak">
+      <h3>Gratis offerte aanvragen</h3>
+      <p>Wij nemen binnen 30 minuten contact met u op.</p>
+      <form>
+        <div class="fg fg-row">
+          <div class="fg">
+            <label>Voornaam</label>
+            <input type="text" placeholder="Jan">
+          </div>
+          <div class="fg">
+            <label>Achternaam</label>
+            <input type="text" placeholder="de Vries">
+          </div>
+        </div>
+        <div class="fg">
+          <label>E-mailadres</label>
+          <input type="email" placeholder="jan@email.nl">
+        </div>
+        <div class="fg">
+          <label>Telefoonnummer</label>
+          <input type="tel" placeholder="06 12 34 56 78">
+        </div>
+        <div class="fg">
+          <label>Wat is het probleem?</label>
+          <select>
+            <option value="">Selecteer een dienst...</option>
+            <option>CV-ketel storing / reparatie</option>
+            <option>CV-ketel lekkage</option>
+            <option>Jaarlijks onderhoud</option>
+            <option>Nieuwe ketel plaatsen</option>
+            <option>Boiler probleem</option>
+            <option>Vloerverwarming storing</option>
+            <option>Gaslek (spoed)</option>
+          </select>
+        </div>
+        <button type="submit" class="form-btn">Offerte aanvragen <i class="fas fa-arrow-right"></i></button>
+        <p class="form-note"><i class="fas fa-lock"></i> Uw gegevens worden nooit gedeeld met derden</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- USP STRIP -->
+<div class="usp-strip">
+  <div class="container">
+    <div class="usp-chip"><i class="fas fa-clock"></i><span>24/7 bereikbaar, ook in weekenden</span></div>
+    <div class="usp-chip"><i class="fas fa-euro-sign"></i><span>Transparante vaste tarieven</span></div>
+    <div class="usp-chip"><i class="fas fa-certificate"></i><span>Gecertificeerde vakmannen</span></div>
+    <div class="usp-chip"><i class="fas fa-map-marker-alt"></i><span>Actief in heel Nederland</span></div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="diensten">
+  <div class="container">
+    <div class="section-head">
+      <span class="s-label">Onze diensten</span>
+      <h2>Wat kunnen wij voor u doen?</h2>
+      <p>Van spoedstoring tot gepland onderhoud — onze monteurs staan voor u klaar met kennis van alle CV-ketel merken.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="svc-icon"><i class="fas fa-wrench"></i></div>
+        <h3>CV-ketel storing &amp; reparatie</h3>
+        <p>Uw ketel werkt niet meer? Onze monteurs diagnosticeren het probleem razendsnel en lossen het doorgaans al bij het eerste bezoek op.</p>
+        <a href="#" class="svc-link">Meer informatie <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><i class="fas fa-droplet"></i></div>
+        <h3>CV-ketel lekkage</h3>
+        <p>Een lekkende ketel veroorzaakt schade aan uw woning. Wij vinden de oorzaak snel en verhelpen het probleem vakkundig.</p>
+        <a href="#" class="svc-link">Meer informatie <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><i class="fas fa-clipboard-check"></i></div>
+        <h3>Jaarlijks CV-ketel onderhoud</h3>
+        <p>Verleng de levensduur van uw ketel en voorkom storingen met een jaarlijkse onderhoudsbeurt door gecertificeerde monteurs.</p>
+        <a href="#" class="svc-link">Meer informatie <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><i class="fas fa-circle-plus"></i></div>
+        <h3>Ketel plaatsen &amp; installeren</h3>
+        <p>Wilt u een nieuwe of zuinigere ketel? Wij adviseren u vrijblijvend en verzorgen de volledige installatie inclusief afvoer.</p>
+        <a href="#" class="svc-link">Meer informatie <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><i class="fas fa-fire-flame-simple"></i></div>
+        <h3>Vloerverwarming reparatie</h3>
+        <p>Storing in uw vloerverwarming? Onze specialisten vinden het lek of de storing zonder onnodige schade aan uw vloer.</p>
+        <a href="#" class="svc-link">Meer informatie <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><i class="fas fa-triangle-exclamation"></i></div>
+        <h3>Gaslek detectie &amp; spoed</h3>
+        <p>Een gaslek is levensgevaarlijk. Wij zijn 24/7 bereikbaar voor spoedgevallen en handelen snel en veilig.</p>
+        <a href="#" class="svc-link">Meer informatie <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<section class="brands">
+  <div class="container">
+    <span class="s-label">Merken waarmee wij werken</span>
+    <div class="brands-row">
+      <span class="brand-name">BOSCH</span>
+      <span class="brand-name">VAILLANT</span>
+      <span class="brand-name">REMEHA</span>
+      <span class="brand-name">INTERGAS</span>
+      <span class="brand-name">NEFIT</span>
+      <span class="brand-name">ATAG</span>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews">
+  <div class="container">
+    <div class="section-head">
+      <span class="s-label">Klantbeoordelingen</span>
+      <h2>Wat zeggen onze klanten?</h2>
+      <p>Meer dan 800 tevreden klanten gingen u voor. Lees hun ervaringen.</p>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-body">"Binnen een uur stond de monteur voor de deur. Heel vriendelijk en vakkundig. De storing was snel gevonden en opgelost. Absolute aanrader!"</p>
+        <div class="reviewer">
+          <div class="r-avatar">M</div>
+          <div>
+            <div class="r-name">Mark van der Berg</div>
+            <div class="r-city">Amsterdam</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-body">"Zondagavond belde ik in paniek — de ketel deed het niet meer. CV Ketel Service stond dezelfde avond nog op de stoep. Ongelooflijk goede service!"</p>
+        <div class="reviewer">
+          <div class="r-avatar">S</div>
+          <div>
+            <div class="r-name">Sandra Willems</div>
+            <div class="r-city">Rotterdam</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-body">"Eerlijk tarief, geen bijkomende verrassingen op de factuur. De monteur legde alles duidelijk uit. Zo wil je geholpen worden!"</p>
+        <div class="reviewer">
+          <div class="r-avatar">R</div>
+          <div>
+            <div class="r-name">Rico Janssen</div>
+            <div class="r-city">Utrecht</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why" id="over-ons">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-img-wrap">
+        <img src="https://i.imgur.com/4ft6xuM.jpg" alt="CV Ketel Service monteur aan het werk">
+        <div class="why-badge">✓ 10+ jaar ervaring in verwarmingsservice</div>
+      </div>
+      <div class="why-content">
+        <div class="section-head">
+          <span class="s-label">Waarom CV Ketel Service?</span>
+          <h2>Sneller, eerlijker en betrouwbaarder</h2>
+          <p>Wij combineren vakmanschap met transparante dienstverlening — zonder gedoe.</p>
+        </div>
+        <div class="why-items">
+          <div class="why-item">
+            <div class="wi-icon"><i class="fas fa-stopwatch"></i></div>
+            <div class="wi-text">
+              <h4>Respons binnen 60 minuten</h4>
+              <p>Bij spoedmeldingen zijn wij gemiddeld binnen een uur ter plaatse, dag en nacht, 365 dagen per jaar.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="wi-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+            <div class="wi-text">
+              <h4>Altijd een vaste prijs vooraf</h4>
+              <p>U weet precies wat u betaalt voordat wij beginnen. Geen verborgen kosten of onaangename verrassingen.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="wi-icon"><i class="fas fa-award"></i></div>
+            <div class="wi-text">
+              <h4>Gecertificeerde monteurs</h4>
+              <p>Al onze technici zijn erkend vakbekwaam en werken uitsluitend met originele onderdelen.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="wi-icon"><i class="fas fa-rotate-left"></i></div>
+            <div class="wi-text">
+              <h4>3 maanden garantie op reparaties</h4>
+              <p>Komt het probleem terug binnen 3 maanden? Dan lossen wij het gratis opnieuw voor u op.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="f-brand">
+        <a href="#" class="logo">
+          <img src="https://i.imgur.com/6DGCSDa.png" alt="CV Ketel Service" style="height:42px;width:auto;filter:brightness(0) invert(1);">
+        </a>
+        <p>Professionele CV-ketel service voor heel Nederland. Snel, eerlijk en altijd bereikbaar — dag en nacht.</p>
+        <div class="f-contacts">
+          <a href="tel:+31850607123"><i class="fas fa-phone"></i> +31 85 060 7123</a>
+          <a href="https://wa.me/31850607123"><i class="fab fa-whatsapp"></i> WhatsApp ons direct</a>
+          <a href="mailto:info@thermopro.nl"><i class="fas fa-envelope"></i> info@thermopro.nl</a>
+          <a href="#"><i class="fas fa-map-marker-alt"></i> Keizersgracht 44, Amsterdam</a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h4>Diensten</h4>
+        <ul class="f-links">
+          <li><a href="#">CV-ketel reparatie</a></li>
+          <li><a href="#">CV-ketel onderhoud</a></li>
+          <li><a href="#">Ketel installatie</a></li>
+          <li><a href="#">Lekkage verhelpen</a></li>
+          <li><a href="#">Vloerverwarming</a></li>
+          <li><a href="#">Gaslek spoed</a></li>
+        </ul>
+      </div>
+      <div class="f-col" id="werkgebied">
+        <h4>Werkgebied</h4>
+        <ul class="f-links">
+          <li><a href="#">Amsterdam</a></li>
+          <li><a href="#">Rotterdam</a></li>
+          <li><a href="#">Den Haag</a></li>
+          <li><a href="#">Utrecht</a></li>
+          <li><a href="#">Eindhoven</a></li>
+          <li><a href="#">Alle steden →</a></li>
+        </ul>
+      </div>
+      <div class="f-col" id="tarieven">
+        <h4>Informatie</h4>
+        <ul class="f-links">
+          <li><a href="#">Over ons</a></li>
+          <li><a href="#">Tarieven</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Veelgestelde vragen</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 CV Ketel Service B.V. — KvK 87654321</span>
+      <span>
+        <a href="#">Privacybeleid</a> &nbsp;·&nbsp;
+        <a href="#">Cookiebeleid</a> &nbsp;·&nbsp;
+        <a href="#">Algemene voorwaarden</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
